@@ -12,15 +12,16 @@
 
     <div class="row">
       <div class="col-12 align-content-center">
+        <h2>Total articles: {{ users.length }}</h2>
         <ul class="list-group">
           <li class="list-group-item" v-for="user in users">
             <div class="d-flex w-100 justify-content-between">
               <h5>{{user.firstname}} {{user.lastname}}</h5>
-              <small>3 days ago</small>
+              <small>3 days ago (todo)</small>
             </div>
             <div class="text-justify">
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small>
+              <p>artical body test here (todo)</p>
+              <small>Author (todo)</small>
             </div>
           </li>
         </ul>
@@ -31,17 +32,21 @@
 
     <div class="row">
       <div class="col-12 align-content-center">
-        <form action="">
+        <form v-on:submit="sub" action="#" method="post">
           <div class="form-group">
             <div class="col-6">
-              <label>{{InputFirstN}}</label>
-              <b-form-input type="text" v-model="input_val_firstName" placeholder="Enter your first name"></b-form-input>
+              <label>Add first name:</label>
+              <b-form-input type="text" v-model="input_val_firstName"
+                            placeholder="Enter your first name"></b-form-input>
             </div>
             <div class="col-6">
-              <label>{{InputSecondN}}</label>
-              <b-form-input type="text" v-model="input_val_secondName" placeholder="Enter your second name"></b-form-input>
+              <label>Add second name:</label>
+              <b-form-input type="text" v-model="input_val_secondName"
+                            placeholder="Enter your second name"></b-form-input>
             </div>
-
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary">Add article</button>
+            </div>
           </div>
         </form>
       </div>
@@ -49,21 +54,21 @@
 
     <div class="row">
       <div class="col-12 align-content-center">
-        <lable>{{OutputValue}}</lable>
+        <h2>Preview article</h2>
+        <strong>Name:</strong>
         <span v-text="input_val_firstName"></span>
         <span v-text="input_val_secondName"></span>
+        <h3>log:{{log}}</h3>
       </div>
-
     </div>
 
     <hr/>
 
     <div class="row">
       <div class="col-12 align-content-center">
-        <div>
-          <button class="btn btn-primary" v-on:click="counter++">Click to count</button>
-          {{counter}}
-        </div>
+        <!--<div>-->
+        <!--<button onclick="addData()" class="btn btn-primary">Add article</button>-->
+        <!--</div>-->
       </div>
     </div>
 
@@ -72,14 +77,14 @@
 
 <script>
   export default {
+    methods: {
+    },
     name: 'Hello',
     data() {
       return {
-        msg: 'This is my vue playground',
-        secondmsg: 'learning Vue JS and what I can do.',
-        InputFirstN: 'Add first name:',
-        InputSecondN: 'Add second name:',
-        OutputValue: 'Output name:',
+        msg: 'Display articles',
+        secondmsg: 'This is a blog built in Vue.js.',
+        log: "",
         users: [
           {
             firstname: 'Sebastian',
@@ -88,6 +93,10 @@
           {
             firstname: 'Bill',
             lastname: 'Smith'
+          },
+          {
+            firstname: 'Tom',
+            lastname: 'bull'
           },
           {
             firstname: 'John',
