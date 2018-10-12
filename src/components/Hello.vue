@@ -8,11 +8,12 @@
       </div>
     </div>
 
-    <div id="main">
-      Filter: <input type="text" v-model="search"/>
-      <div v-for="customer in filteredCustomers">
-        <span>{{customer.name}}</span>
-      </div>
+    <div class="row">
+      <!--Filter: <input type="text" v-model="search"/>-->
+      <!--<div v-for="customer in filteredCustomers">-->
+        <!--<span>{{customer.name}}</span>-->
+      <!--</div>-->
+
     </div>
 
     <hr/>
@@ -108,7 +109,9 @@
         this.input_val_firstName = '';
         this.input_val_secondName = ''
       },
+      // end
 
+      // removes user to list
       deleteUser: function (index) {
         // console.log(index);
         // console.log(this.users);
@@ -117,15 +120,14 @@
           body: 'You removed this article from your subscription',
         }, {})
       },
+      // end
 
+      // edit user within list
       editUser: function (record) {
-        // console.log(index);
-        // console.log(this.users);
         const index = _.indexOf(this.users, this.cache);
         this.users.splice(index, 1, record);
       },
-
-
+      // end
 
     },
     data() {
@@ -134,13 +136,6 @@
         secondmsg: 'This is a blog built in Vue.js.',
         checked: 'Selected',
         log: "",
-        search: '',
-        customers: [
-          { id: '1', name: 'Jhon Snow', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-          { id: '2', name: 'Deanerys Targarian', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-          { id: '3', name: 'Jaime Lanister', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-          { id: '4', name: 'Tyron Lanister', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'}
-        ],
         users: [
           {
             firstname: 'Sebastian',
