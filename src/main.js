@@ -5,6 +5,13 @@ import App from './App'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueNativeNotification from 'vue-native-notification'
+
+Vue.use(VueNativeNotification, {
+  // Automatic permission request before
+  // showing notification (default: true)
+  requestOnNotify: true
+});
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
@@ -13,5 +20,5 @@ Vue.use(BootstrapVue);
 new Vue({
   el: '#app',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 });
